@@ -2,6 +2,8 @@ package com.example.client_02.sercice.feign;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 /**
@@ -20,7 +22,7 @@ public interface TestFeign {
      * 调用的接口名
      * @return
      */
-    @GetMapping("/getStr")
-    String getStr();
+    @PostMapping("/getStr")
+    String getStr(@RequestParam("a") String a);
 
 }

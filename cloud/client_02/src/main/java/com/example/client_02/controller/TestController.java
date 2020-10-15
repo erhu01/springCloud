@@ -4,6 +4,7 @@ import com.example.client_02.sercice.feign.TestFeign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -20,7 +21,7 @@ public class TestController {
     @GetMapping("/testFeign")
     @ResponseBody
     public String testFeign(){
-        String str = testFeign.getStr();
+        String str = testFeign.getStr("998595");
         return str;
     }
 
