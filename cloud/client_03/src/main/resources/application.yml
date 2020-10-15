@@ -1,0 +1,21 @@
+# 指定服务名称
+server:
+  port: 8203
+spring:
+  application:
+    name: client-01 #实例名称
+
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka
+      instance:
+        prefer‐ip‐address: true #可以跨域访问
+        instance-id: client-03
+        #定义服务任务续约的调用间隔时间
+        lease-renewal-interval-in-seconds: 5
+        #定义服务失效时间
+        lease-expiration-duration-in-seconds: 10
+        #实例信息的元数据
