@@ -1,8 +1,7 @@
 package com.example.client_03.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @Author: xiong
@@ -11,11 +10,23 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class TestController {
 
-    @GetMapping("/getStr")
+    @PostMapping("/getStr")
     @ResponseBody
-    public String getStr(){
-        System.out.println("服务三 ： 被调用");
-        return "client_03 返回值";
+    public String getStr(@RequestParam("a") String a){
+        System.out.println("服务一 ： 被调用");
+        //System.out.println(2/0);
+        return "client_01 返回值"+"-------"+a;
+    }
+
+    public String hiFail(String a){
+        return "hystrix ---- 发生错误！";
+    }
+
+    @RequestMapping("/getAbc")
+    @ResponseBody
+    public String getAbc(){
+        System.out.println("我来了 客户端 3");
+        return "我来了 客户端 3";
     }
 
 }

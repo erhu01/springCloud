@@ -13,7 +13,7 @@ eureka:
       defaultZone: http://localhost:8888/eureka
       instance:
         prefer‐ip‐address: true #可以跨域访问
-        instance-id: client-03
+        instance-id: client-01
         #定义服务任务续约的调用间隔时间
         lease-renewal-interval-in-seconds: 5
         #定义服务失效时间

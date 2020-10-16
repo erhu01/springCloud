@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>sever_01</artifactId>
+	<artifactId>zuul_01</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>sever_01</name>
+	<name>zuul_01</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -20,13 +20,18 @@
 
 	<dependencies>
 
-		<!--eureka 服务端-->
+		<!--zuul-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+			<artifactId>spring-cloud-starter-netflix-zuul</artifactId>
 			<version>2.2.1.RELEASE</version>
 		</dependency>
-		<!--eureka 服务端结束-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			<version>2.2.1.RELEASE</version>
+		</dependency>
+		<!--zuul-->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -37,12 +42,6 @@
 			<artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -71,9 +70,8 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>2.2.6.RELEASE</version>
+				<version>2.0.4.RELEASE</version>
 			</plugin>
-
 		</plugins>
 	</build>
 

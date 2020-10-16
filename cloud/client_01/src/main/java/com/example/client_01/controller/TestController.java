@@ -15,7 +15,7 @@ public class TestController {
     @HystrixCommand(fallbackMethod = "hiFail")//hystrix 发生错误后跳转的方法
     public String getStr(@RequestParam("a") String a){
         System.out.println("服务一 ： 被调用");
-        System.out.println(2/0);
+        //System.out.println(2/0);
         return "client_01 返回值"+"-------"+a;
     }
 
@@ -23,5 +23,11 @@ public class TestController {
         return "hystrix ---- 发生错误！";
     }
 
+    @RequestMapping("/getAbc")
+    @ResponseBody
+    public String getAbc(){
+        System.out.println("我来了 客户端 1");
+        return "我来了 客户端 1";
+    }
 
 }
