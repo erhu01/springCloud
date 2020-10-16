@@ -1,0 +1,7 @@
+# 指定服务名称
+server:
+  port: 8403
+spring:
+  application:
+    name: config-01 #实例名称
+
