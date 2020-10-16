@@ -31,6 +31,7 @@ public class TestController {
         return "我来了 客户端 1---"+test;
     }
 
+    //远程配置文件的信息
     @Value("${test.test}")
     private String test;
 
