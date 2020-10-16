@@ -1,6 +1,7 @@
 package com.example.client_01.controller;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,7 +28,10 @@ public class TestController {
     @ResponseBody
     public String getAbc(){
         System.out.println("我来了 客户端 1");
-        return "我来了 客户端 1";
+        return "我来了 客户端 1---"+test;
     }
+
+    @Value("${test.test}")
+    private String test;
 
 }

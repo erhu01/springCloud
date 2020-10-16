@@ -1,0 +1,33 @@
+###服务名称(服务注册到eureka名称)
+spring:
+  application:
+    name: client-01 #项目名和配置文件名一直，配置文件候面的名字是环境名，比如现在的配置文件名为client-01-dev.yml
+  cloud:
+    config:
+      # 读取版本环境，也就是配置文件的后缀名。如：client-01-dev.yml
+      profile: dev
+      discovery:
+        # 就是读取configserver服务，写成configserver的spring.application.name
+        service-id: config
+        enabled: true
+server:
+  port: 8201
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka
+      instance:
+        prefer‐ip‐address: true #可以跨域访问
+        instance-id: client-01
+        #定义服务任务续约的调用间隔时间
+        lease-renewal-interval-in-seconds: 5
+        #定义服务失效时间
+        lease-expiration-duration-in-seconds: 10
+        #实例信息的元数据
+
+
+
+
+  #spring.cloud.config.uri=http://localhost:3721/
+
