@@ -3,6 +3,11 @@ spring:
     name: config
   #git 配置
   cloud:
+    bus:
+      trace:
+        enabled: true
+        #访问一下地址可以获得配置文件
+        #http://localhost:8401/application-client-01.yml
     config:
       label: master #分支名，一般为master
       server:
@@ -12,8 +17,20 @@ spring:
           username: erhu01  # 以及相应的账户名
           password: Xiong1991  # 和密码
           basedir: F:\gitPro\config  # 可以使用这个配置项来指定本地git仓库的路径
-#访问一下地址
-#http://localhost:8401/application-client-01.yml
+  #post请求访问以下路径，可以实时刷新
+  #客户端和配置服务端都要改
+  #localhost:8201/actuator/bus-refresh
+  rabbitmq:
+    host: 115.29.150.104
+    port: 5672
+    username: guest
+    password: guest
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
+
 
 eureka:
   client:
@@ -21,3 +38,5 @@ eureka:
       defaultZone: http://localhost:8888/eureka
 server:
   port: 8401
+
+

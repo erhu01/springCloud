@@ -1,6 +1,8 @@
 package com.example.client_01.controller;
 
+import com.example.client_01.config.Config;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -24,11 +26,14 @@ public class TestController {
         return "hystrix ---- 发生错误！";
     }
 
+    @Autowired
+    Config config;
+
     @RequestMapping("/getAbc")
     @ResponseBody
     public String getAbc(){
         System.out.println("我来了 客户端 1");
-        return "我来了 客户端 1---"+test;
+        return "我来了 客户端 1---"+test+"-------"+config.getTest();
     }
 
     //远程配置文件的信息

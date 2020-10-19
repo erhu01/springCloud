@@ -10,6 +10,16 @@ spring:
         # 就是读取configserver服务，写成configserver的spring.application.name
         service-id: config
         enabled: true
+  #post请求访问以下路径，可以实时刷新
+  #客户端和配置服务端都要改
+  #localhost:8201/actuator/bus-refresh
+  rabbitmq:
+    host: 115.29.150.104
+    port: 5672
+    username: guest
+    password: guest
+
+
 server:
   port: 8201
 
@@ -31,3 +41,11 @@ eureka:
 
   #spring.cloud.config.uri=http://localhost:3721/
 
+
+
+#暴露全部监控信息，properties的话，include后的*不用加引号
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
