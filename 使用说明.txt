@@ -1,0 +1,6 @@
+无法启动是因为maven没有检测pom
+解决办法：
+打开idea右边maven
+选择加号
+选择找到的pom 
+点击ok
